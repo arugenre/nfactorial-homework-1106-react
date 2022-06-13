@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import './Dalida';
+import Dalida from './Dalida';
 
 function App() {
+  const [counter, setCounter] = useState(0); 
+  const increaseCounter = () => {
+    setCounter(counter + 1);
+  }
+  const decreaseCounter = () => {
+    setCounter(counter - 1);
+  }
+  const resetCounter = () => {
+    setCounter(0);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="buttons">
+      <h1>{counter}</h1>
+      {Dalida()}
+      <button onClick={increaseCounter} style={{color:'white', backgroundColor:'green'}}> Increase </button>
+      <button onClick={decreaseCounter}> Decrease </button>
+      <button onClick={resetCounter}> Reset</button>
     </div>
+  
   );
 }
 
